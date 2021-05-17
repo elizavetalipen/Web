@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Characters</title>
+    <!-- для заголовков-->
+    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+
+  <body>
+      <!-- generate button -->
+      <input type='button' class="myButton" onclick='window.location.reload()' value ='Generate characters' />
+      <section class="container">
+      </section>
+
+   <script>
+    /*для генерации рандомной страницы с героями*/
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
+      }
+
+    const section = document.querySelector('section');
+
+    let requestURL = 'https://rickandmortyapi.com/api/character/?page='+getRandomInt(1, 34);
+    let request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+    request.responseType = 'text';
+    request.send();
+
+    request.onload = function() {
+      const heroesText = request.response;
+      const heroes = JSON.parse(heroesText);
+      showData(heroes);
+    }
+
+    function showData(jsonObj) {
+      const arr = jsonObj['results'];
+
+      for(let i = 0; i < arr.length; i++) {
+        const myArticle = document.createElement('article');
+        const myHeader = document.createElement('h2');
+        const heroStatus = document.createElement('p');
+        const heroSpecies = document.createElement('p');
+        const heroType = document.createElement('p');
+        const heroGender = document.createElement('p');
+        const heroPic = document.createElement('img');
+        const mydivider = document.createElement('hr')
+
+        myHeader.textContent = arr[i].name;
+        heroStatus.textContent = 'Status: ' + arr[i].status;
+        heroSpecies.textContent = 'Species: ' + arr[i].species;
+        heroType.textContent = 'Type: ' + arr[i].type;
+        heroGender.textContent = 'Gender: ' + arr[i].gender;
+        pic = arr[i].image
+        heroPic.setAttribute('src', pic);
+        heroPic.setAttribute('class','img-responsive');
+        heroPic.setAttribute('class','shaking');
+
+        myArticle.appendChild(myHeader);
+        myArticle.appendChild(heroStatus);
+        myArticle.appendChild(heroSpecies);
+        myArticle.appendChild(heroType);
+        myArticle.appendChild(heroGender);
+        myArticle.appendChild(heroPic);
+        myArticle.appendChild(mydivider);
+
+        section.appendChild(myArticle);
+      }
+    }
+    </script>
+  </body>
+</html>

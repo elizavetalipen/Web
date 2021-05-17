@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=   , initial-scale=1.0">
+    <title>Episodes</title>
+    <!-- FONT AWESME ICONS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS File -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container_table">
+    <style>
+        body {
+        margin: 20px;
+        background: linear-gradient(45deg, #EECFBA, #C5DDE8);
+    }
+    </style>
+    <script>
+    function createTable(objectArray, fields, fieldTitles) {
+      let body = document.getElementsByTagName('body')[0];
+      let tbl = document.createElement('table');
+      let thead = document.createElement('thead');
+      let thr = document.createElement('tr');
+
+      for (p in objectArray[0]){
+        let th = document.createElement('th');
+        th.appendChild(document.createTextNode(p));
+        thr.appendChild(th);
+        
+      }
+     
+      thead.appendChild(thr);
+      tbl.appendChild(thead);
+       let tbdy = document.createElement('tbody');
+      let tr = document.createElement('tr');
+      objectArray.forEach((object) => {
+        let n = 0;
+        let tr = document.createElement('tr');
+        for (p in objectArray[0]){
+          var td = document.createElement('td');
+          td.setAttribute("style","border: 1px solid #534b4f; padding: 5px;width: 50%;margin-bottom: 20px; border-collapse: collapse;text-align: center; ");
+          td.appendChild(document.createTextNode(object[p]));
+          tr.appendChild(td);
+          n++;
+        };
+        tbdy.appendChild(tr);    
+      });
+      tbl.setAttribute("id","eps")
+      tbl.appendChild(tbdy);
+      body.appendChild(tbl)
+      return tbl;
+    };
+
+    createTable([ {episode: 'Pilot', description:'A strangely eccentric genius scientist and inventor, moves into the home of his daughter and her family and begins to strongly influence his young grandson.', raiting:'8'},
+                  {episode:'Lawnowner Dog ', description:'Rick helps Jerry out with the dog.', raiting:'8,8'},
+                  {episode:'Anatomy Park', description:'It is Christmas. Rick shrinks Morty, injecting him into a homeless man to save Anatomy Park. Jerry tries to have a Christmas free of electronic devices, but regrets his decision when his parents introduce him to their new friend.', raiting:'8,4'},
+                  {episode:'M.Night Shaym-Aliens!', description:'Rick and Morty try to get to the bottom of a mystery.', raiting:'8,7'},
+                  {episode:'Meeseeks and Destroy', description:'Rick provides the family with a solution to their problems, freeing him up to go on an adventure led by Morty.', raiting:'9'},
+                  {episode:'Rick Potion #9 ', description:'After Rick gives Morty a love potion for a school dance, things quickly spiral out of control when the serum splices with the flu - causing it to spread. Rick and Morty scramble to cure the crisis, making matters worse in the process.', raiting:'9,1'},
+                  {episode:'Raising Gazorpazorp', description:'Morty becomes a father to an alien baby, while Rick and Summer get trapped in a dangerous dimension.', raiting:'8'},
+                  {episode:'Rixty Minutes', description:'Rick hooks up the familys TV with interdimensional cable, allowing them to watch infinite TV from across the multiverse.', raiting:'8,8'},
+                  {episode:'Something Ricked This Way Comes', description:'Summer gets a job at a pawn shop owned by the devil. Jerry helps Morty with his science fair project.', raiting:'8,5'},
+                  {episode:'Close Rick-counters of the Rick Kind ', description:'Rick, falsely blamed for Murder by the council of Ricks, begins a cross-dimensional pursuit with the authorities while attempting to prove his innocence.', raiting:'9,4'},
+                  {episode:'Ricksy Business', description:'Beth and Jerry head for an iceberg of a date leaving Rick in charge. Morty does not get to go on any more adventures if the house is not in the same condition when they get back.', raiting:'8,5'},
+                  {episode:'A Rickle in Time ', description:'Having restarted time, Rick, Morty and Summer are in a quantum-uncertain state of existence. An argument leads to the creation of two alternate timelines, which need to be stitched back together fast if they are to escape quantum collapse.', raiting:'8,9'},
+                  {episode:'Mortynight Run', description:'Rick and Morty try to save a gas life form while Jerry resides in a daycare made for Jerrys.', raiting:'8,9'},
+                  {episode:'Auto Erotic Assimilation ', description:'Rick gets emotional. Beth and Jerry get into a fight.', raiting:'8,6'},
+                  {episode:'Total Rickall', description:'The Smith house is locked down after parasites threaten to take over the world by multiplying through flashbacks.', raiting:'9,6'},
+                  {episode:'Get Schwifty', description:'Rick and morty must aid Earth after a giant head disrupts the planet, demanding to see a hit song performed.', raiting:'8,3'},
+                  {episode:'The Ricks Must Be Crazy ', description:'Rick is having trouble with his car and they have to fix it by traveling to the microverse.', raiting:'9,3'},
+                  {episode:'Big Trouble in Little Sanchez', description:'Rick joins in on some hijinks by transferring his consciousness into teenage "Tiny Rick." Beth and Jerry sort out their relationship.', raiting:'8,5'},
+                  {episode:'Interdimensional Cable 2: Tempting Fate', description:'Jerry is faced with the difficult decision of losing his manhood in order to save an alien leader from imminent death. Meanwhile, Rick, Morty and Summer explore the possibilities of interdimensional television.', raiting:'7,7'},
+                  {episode:'Look Who is Purging Now', description:'Rick and Morty arrive on an alien planet to fix their ship just as the day of the purge begins there, Jerry and Summer work on their father-daughter relationship, but his lack of employment keeps coming up.', raiting:'8,6'},
+                  {episode:'The Wedding Squanchers', description:'The Smith family is invited to the wedding of Ricks best friend, Birdperson. Things go south when it is discovered that the bride isnt who she says she is.', raiting:'9,4'},
+                  {episode:'The Rickshank Rickdemption ', description:'Rick, still in galactic prison, puts an intricate escape plan into action. Back on Earth, which is now under federation control, Morty and Summer have an argument about their grandpa.', raiting:'9,6'},
+                  {episode:'Rickmancing the Stone ', description:'With the kids dealing with their parents divorce, Rick takes them to a Mad Max-style universe where he tries to steal a green crystal from a group of scavengers.', raiting:'8,2'},
+               ])
+    </script>
+</div>
+</body>
+</html> 
